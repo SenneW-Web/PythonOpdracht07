@@ -3,11 +3,12 @@ import sqlite3
 conn = sqlite3.connect("leerlingen.sqlite3")
 c = conn.cursor()
 
-c.execute('''CREATE TABLE Leerlingen (Id, Voornaam, Achternaam)''')
-c.execute("INSERT INTO Leerlingen VALUES ('1', 'Brent', 'Verlinden')")
-c.execute("INSERT INTO Leerlingen VALUES ('2', 'Arne', 'Meylemans')")
-c.execute("INSERT INTO Leerlingen VALUES ('3', 'Thijs', 'Verbelen')")
-c.execute("INSERT INTO Leerlingen VALUES ('4', 'Senne', 'Weygers')")
+c.execute(
+    '''CREATE TABLE Leerlingen (Id INTEGER PRIMARY KEY, Voornaam, Achternaam)''')
+c.execute("INSERT INTO Leerlingen VALUES ('Brent', 'Verlinden')")
+c.execute("INSERT INTO Leerlingen VALUES ('Arne', 'Meylemans')")
+c.execute("INSERT INTO Leerlingen VALUES ('Thijs', 'Verbelen')")
+c.execute("INSERT INTO Leerlingen VALUES ('Senne', 'Weygers')")
 
 conn.commit()
 
@@ -22,3 +23,11 @@ print("S: Stop het programma.")
 keuze = input("Kies een optie uit het bovenstaande menu: ")
 
 while keuze != "S"
+   if keuze = "N":
+        Voornaam = input("Geef de voornaam van de leerling:")
+        Achternaam = input("Geef de achternaam van de leerling:")
+        c.execute("INSERT INTO Leerlingen VALUES (?,?)", Voornaam, Achternaam)
+    elif keuze = "V":
+        c.execute(
+            '''SELECT Id,Voornaam,Achternaam FROM Leerlingen ORDER BY Voornaam''')
+    elif keuze = "A":
